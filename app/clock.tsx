@@ -20,7 +20,7 @@ export const Clock = ({ time: initial }: Props) => {
   return (
     <div className="text-7xl tabular-nums">
       {time.toLocaleTimeString(undefined, {
-        hour: '2-digit',
+        hour: 'numeric',
         minute: '2-digit'
       })}
     </div>
