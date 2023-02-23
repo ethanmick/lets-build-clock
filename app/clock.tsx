@@ -1,6 +1,9 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
+
+const Time = dynamic(() => import('./time'), { ssr: false })
 
 type Props = {
   time: number
@@ -19,10 +22,7 @@ export const Clock = ({ time: initial }: Props) => {
 
   return (
     <div className="text-7xl tabular-nums">
-      {time.toLocaleTimeString(undefined, {
-        hour: 'numeric',
-        minute: '2-digit'
-      })}
+      <Time time={time} />
     </div>
   )
 }
